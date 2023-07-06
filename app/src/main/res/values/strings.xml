@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Musicplayerapp</string>
+    <string name="echo">ECHO</string>
+    <string name="music_player">MUSIC PLAYER</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="open_nav">Open navigation drawer</string>
+    <string name="close_nav">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_sort">Sort</string>
+    <string name="song_1">Yellow</string>
+    <string name="song_2">Cake By The Ocean</string>
+    <string name="song_3">Poker Face</string>
+    <string name="song_4">At My Worst</string>
+    <string name="song_5">Jealous</string>
+    <string name="song_6">Night Changes</string>
+    <string name="song_7">I Wanna Be Yours</string>
+    <string name="song_8">Die For You</string>
+    <string name="song_9">Memories</string>
+    <string name="song_10">Limbo</string>
+    <string name="song_11">Pillowtalk</string>
+    <string name="artist_1">Coldplay</string>
+    <string name="artist_2">DNCE</string>
+    <string name="artist_3">Lady Gaga</string>
+    <string name="artist_4">Pink Sweats</string>
+    <string name="artist_5">Nick Jonas</string>
+    <string name="artist_6">One Direction</string>
+    <string name="artist_7">Arctic Monkeys</string>
+    <string name="artist_8">The Weeknd</string>
+    <string name="artist_9">Maroon 5</string>
+    <string name="artist_10">Keshi</string>
+    <string name="artist_11">ZAYN</string>
+
+
+
+    <string name="menu_allsongs">All Songs</string>
+    <string name="menu_favourites">Favourites</string>
+    <string name="menu_Aboutus">About Us</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_navigation">Navigation_activity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
