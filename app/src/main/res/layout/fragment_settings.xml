@@ -5,13 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
-
     <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/settings_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings fragment"
+        android:text=""
         android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_centerHorizontal="true"/>
+
+    <Switch
+        android:id="@+id/shake_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/settings_text"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:text="Shake to Change Song      "
+        android:textSize="20sp" />
 
 </RelativeLayout>

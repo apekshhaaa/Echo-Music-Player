@@ -16,7 +16,6 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
-
 public class AllSongsFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -27,10 +26,12 @@ public class AllSongsFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private ArrayList<Allsongs> allsongsArrayList;
     private String[] songname;
     private String[] artistname;
+    private ArrayList<Allsongs> allsongsArrayList;
+    private ArrayList<Allsongs> FavouritesArrayList;
     private RecyclerView recyclerview;
+    private AllsongsAdapter allsongsAdapter;
 
     public AllSongsFragment() {
         // Required empty public constructor
@@ -67,9 +68,9 @@ public class AllSongsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((AppCompatActivity) requireActivity()).getSupportActionBar().setTitle("All Songs");
         return inflater.inflate(R.layout.fragment_all_songs, container, false);
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -78,13 +79,15 @@ public class AllSongsFragment extends Fragment {
         recyclerview = view.findViewById(R.id.recyclerView);
         recyclerview.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerview.setHasFixedSize(true);
-        AllsongsAdapter allsongsAdapter=new AllsongsAdapter(getContext(),allsongsArrayList);
+
+        AllsongsAdapter allsongsAdapter=new AllsongsAdapter(getContext(),allsongsArrayList,FavouritesArrayList);
         recyclerview.setAdapter(allsongsAdapter);
         allsongsAdapter.notifyDataSetChanged();
+
     }
 
 
-    private void dataInitialize() {
+     private void dataInitialize() {
         allsongsArrayList = new ArrayList<>();
         songname=new String[]{
                 getString(R.string.song_1),
@@ -95,9 +98,6 @@ public class AllSongsFragment extends Fragment {
                 getString(R.string.song_6),
                 getString(R.string.song_7),
                 getString(R.string.song_8),
-                getString(R.string.song_9),
-                getString(R.string.song_10),
-                getString(R.string.song_11),
         };
         artistname=new String[]{
                 getString(R.string.artist_1),
@@ -108,12 +108,19 @@ public class AllSongsFragment extends Fragment {
                 getString(R.string.artist_6),
                 getString(R.string.artist_7),
                 getString(R.string.artist_8),
-                getString(R.string.artist_9),
-                getString(R.string.artist_10),
-                getString(R.string.artist_11),
+        };
+        int[] songResourceIds = new int[]{
+                R.raw.yellow,
+                R.raw.cake_by_the_ocean,
+                R.raw.poker_face,
+                R.raw.jealous,
+                R.raw.night_changes,
+                R.raw.radio,
+                R.raw.die_for_you,
+                R.raw.do_i_wanna_know,
         };
         for(int i=0;i< songname.length;i++){
-            Allsongs allsongs=new Allsongs(songname[i],artistname[i] ) ;
+            Allsongs allsongs=new Allsongs(songname[i],artistname[i],songResourceIds[i]) ;
             allsongsArrayList.add(allsongs);
         }
     }

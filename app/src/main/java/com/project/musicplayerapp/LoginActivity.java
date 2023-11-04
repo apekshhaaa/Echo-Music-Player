@@ -13,8 +13,8 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
     private Handler handler;
     EditText em,pw;
-    String e="applehead@gmail.com";
-    String p="orangeoverapples";
+    String e="abc@gmail.com";
+    String p="abc";
     Button b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,20 +33,29 @@ public class LoginActivity extends AppCompatActivity {
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String re=em.getText().toString();
-                String rp=pw.getText().toString();
-                boolean b=android.util.Patterns.EMAIL_ADDRESS.matcher(re).matches();
+                String re = em.getText().toString();
+                String rp = pw.getText().toString();
+                boolean b = android.util.Patterns.EMAIL_ADDRESS.matcher(re).matches();
                 if (!b)
                 {
                     Toast.makeText(LoginActivity.this, "invalid email", Toast.LENGTH_SHORT).show();}
                 else{
                     if(re.equals(e) && rp.equals(p)){
-                        //Toast.makeText(LoginActivity.this, "login succesful", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(LoginActivity.this, "login successful", Toast.LENGTH_SHORT).show();
+                        handler.postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                // Start the next activity or perform any other action
+                                Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
+                                startActivity(intent);
+                                finish(); // Optional: Close the login activity
+                            }
+                        }, 750);
                     }
                     else {
                         Toast.makeText(LoginActivity.this, "email and password mismatch", Toast.LENGTH_SHORT).show();
                     }}
-                handler.postDelayed(new Runnable() {
+                /*handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         // Start the next activity or perform any other action
@@ -54,7 +63,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish(); // Optional: Close the login activity
                     }
-                }, 2000);
+                }, 750);*/
             }
         });
 

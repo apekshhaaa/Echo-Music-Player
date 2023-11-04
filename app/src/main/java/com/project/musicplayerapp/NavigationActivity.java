@@ -64,6 +64,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationV
                 Toast.makeText(this, "logout!", Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(NavigationActivity.this,LoginActivity.class);
                 startActivity(intent);
+                finish();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

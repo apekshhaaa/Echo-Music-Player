@@ -2,6 +2,7 @@ package com.project.musicplayerapp;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -59,6 +60,7 @@ public class AboutUsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        ((AppCompatActivity) requireActivity()).getSupportActionBar().setTitle("About Us");
         return inflater.inflate(R.layout.fragment_about_us, container, false);
     }
 }

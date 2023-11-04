@@ -13,15 +13,18 @@ import java.util.ArrayList;
 
 public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.MyViewHolder> {
     Context context;
+    ArrayList<Allsongs> favouritesList;
 
-    ArrayList<Favourites> FavouritesArrayList;
-
-    public FavouritesAdapter(Context context,ArrayList<Favourites> FavouritesArrayList) {
+    public FavouritesAdapter(Context context,ArrayList<Allsongs> FavouritesArrayList) {
         this.context=context;
-        this.FavouritesArrayList=FavouritesArrayList;
+        this.favouritesList=FavouritesArrayList;
 
     }
 
+    public void setFavourites(ArrayList<Allsongs> FavouritesArrayList){
+        this.favouritesList = FavouritesArrayList;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,15 +34,23 @@ public class FavouritesAdapter extends RecyclerView.Adapter<FavouritesAdapter.My
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Favourites favourites=FavouritesArrayList.get(position);
-        holder.songname.setText(favourites.song_name);
-        holder.artistname.setText(favourites.artist_name);
+        Allsongs song = favouritesList.get(position);
+        holder.songname.setText(song.song_name);
+        holder.artistname.setText(song.artist_name);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int i;
+                //not implemented
+            }
+        });
 
     }
 
     @Override
     public int getItemCount() {
-        return FavouritesArrayList.size();
+        return favouritesList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
